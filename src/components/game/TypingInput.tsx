@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import { useContext, useRef } from "react";
-import { useGameTime } from "../../hooks/useGameTime";
 import { AppContext } from "../../store/context";
 import { GameProgressActionType, WordsActionType } from "../../store/reducers";
 import { isSpaceKey } from "../../utils/utils";
@@ -8,7 +7,9 @@ import { isSpaceKey } from "../../utils/utils";
 
 export default function () {
   const { state, dispatch } = useContext(AppContext);
-  const {setGameTimer} = useGameTime();
+  if(state.gameProgress.isFinished) {
+    return null
+    }
   const inputRef = useRef<HTMLInputElement>(null);
   const setGameStarted = () => {
     
@@ -16,9 +17,7 @@ export default function () {
       return;
     }
     dispatch({ type: GameProgressActionType.START_GAME });
-    if(!state.gameProgress.isFinished){
-      setGameTimer(+new Date());
-    }
+  
   }
 
   const addWord = (newWord: string) => {

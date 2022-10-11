@@ -1,22 +1,26 @@
 import { Dispatch, createContext, useReducer, ReactNode, useContext } from 'react';
-import { State } from '../types/store.type';
+import { GameProgress, State } from '../types/store.type';
 import { Word } from '../types/word.type';
 import { getWordBank } from '../utils/utils';
 import { GameProgressActions, gameProgressReducer, WordsActions, wordsReducer } from './reducers';
 
 
+export const gameProgressInitialState: GameProgress = {
+    isStarted: false,
+    isFinished: false,
+    startTime: null,
+    endTime: null,
+    currentWordIndex: 0,
+    correctWords: 0,
+    wordsWithTypos: 0,
+    wordsTyped: 0,
+    timePassed: 0,
+}
+
 const initialState: State = {
     words: getWordBank(),
     gameProgress: {
-        isStarted: false,
-        isFinished: false,
-        startTime: null,
-        endTime: null,
-        currentWordIndex: 0,
-        correctWords: 0,
-        wordsWithTypos: 0,
-        wordsTyped: 0,
-        timePassed: 0,
+       ...gameProgressInitialState
     }
 }
 
