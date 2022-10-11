@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    --footer-height: 30px;
+    --header-height: 125px;
+    --dl-red: #ff4998;
+    --dl-green: #00cc74;
+}   
+@media screen and (max-width: 640px) {
+    html{
+        --header-height: 30px;
+    }
+    
+}
+.app-header{
+    height: var(--header-height);
+}
+.app-footer{
+    height: var(--footer-height);
+}
+.board{
+    margin-block: 1rem;
+    min-height: calc(100vh - var(--footer-height) - var(--header-height) - 3rem);
+}
+.inner-padding{
+    padding-inline: 1.5rem;
+}
