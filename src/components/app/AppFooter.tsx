@@ -5,7 +5,7 @@ export default function AppFooter() {
       <span>
         Develop by:
       </span>
-      <a href="https://naamanfrenkel.dev" target="_blank" rel="noopener noreferrer">Nemo Frenkel</a>
+      <a href="https://naamanfrenkel.dev" className="nemo-hover" target="_blank" rel="noopener noreferrer">Nemo Frenkel</a>
     </footer>
   )
 }
