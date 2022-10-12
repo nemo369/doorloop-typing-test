@@ -60,7 +60,7 @@ export default function () {
         inputRef={inputRef}
         onKeyUp={keyPressHandler}
         fullWidth autoComplete="off" autoCorrect="off"
-        className="pt-2" label="Fast Typing over here.." variant="outlined"
+        className="pt-2" label="fast typing over here.." variant="outlined"
       />
 
     </div>
