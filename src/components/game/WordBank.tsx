@@ -7,7 +7,7 @@ export default function WordBank() {
   const {state}= useContext(AppContext);
 
   return (
-    <ol className='inner-padding flex flex-wrap gap-x-1.5 gap-y-1 overflow-y-auto max-h-[270px] md:max-h-[300px] pr-1 pt-2'>
+    <ol className='inner-padding flex flex-wrap gap-x-1.5 gap-y-1 overflow-y-auto max-h-[270px] md:max-h-[30px] pr-1 pt-2'>
         {state.words.map((word, index) => (
             <li key={index}><WordCmp word={word} isCurrent={index === state.gameProgress.currentWordIndex}/></li>
         ))}
@@ -15,7 +15,7 @@ export default function WordBank() {
   )
 }
 const WordCmp = ({word, isCurrent}:{word:Word, isCurrent:boolean}) => {
-    const elRef = useRef<HTMLDivElement>()
+    const elRef = useRef<HTMLDivElement>(null)
 
     const scrollToView = () => {
         if(!elRef.current){
