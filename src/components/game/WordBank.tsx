@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { AppContext } from '../../store/context';
 import { Word } from '../../types/word.type';
 import { isBoolean } from '../../utils/utils';
@@ -15,8 +15,21 @@ export default function WordBank() {
   )
 }
 const WordCmp = ({word, isCurrent}:{word:Word, isCurrent:boolean}) => {
+    const elRef = useRef<HTMLDivElement>()
+
+    const scrollToView = () => {
+        if(!elRef.current){
+            return;
+        }
+        elRef.current.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});
+    }
+    if(isCurrent){
+        scrollToView();
+    }
     return (
-        <div className={
+        <div
+        ref={elRef}
+        className={
             `py-2 px-1 rounded-md flex items-center gap-x-1 bg-stone-50 
             ${isBoolean(word.isCorrect) && word.isCorrect ? 'text-green' : ''}
             ${isBoolean(word.isCorrect) && !word.isCorrect ? 'text-red' : ''}
