@@ -1,6 +1,6 @@
 # DoorLoop Typing Fast Test
 
-you can find live version of this project [here](https://6345fcae61cbab5cf12c263e--chipper-fudge-9ad424.netlify.app/)
+you can find live version of this project [here](https://chipper-fudge-9ad424.netlify.app/)
 
 ## Getting Started
 
